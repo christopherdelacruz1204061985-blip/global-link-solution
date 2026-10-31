@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLOBAL LINK SOLUTION | Digital Agency</title>
+<style>
+:root {
+  --blue:#1266c5;
+  --dark:#092447;
+  --light:#eef5ff;
+  --white:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,sans-serif;
+  color:#24334a;
+  background:#f5f8fc;
+  line-height:1.6;
+}
+header{
+  background:var(--dark);
+  color:white;
+  padding:17px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
+}
+.logo{font-size:19px;font-weight:bold}
+.logo span{color:#55a9ff}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:#55a9ff}
+.hero{
+  background:linear-gradient(120deg,#092447,#1266c5);
+  color:white;
+  padding:85px 8%;
+  text-align:center;
+}
+.hero h1{font-size:clamp(32px,6vw,52px);line-height:1.2}
+.hero p{max-width:650px;margin:20px auto;color:#e1edff}
+.btn{
+  display:inline-block;
+  background:#fff;color:#1266c5;
+  padding:12px 22px;border-radius:7px;
+  text-decoration:none;font-weight:bold;
+  border:0;cursor:pointer;
+}
+.btn.blue{background:var(--blue);color:white}
+.btn:hover{opacity:.85}
+section{padding:65px 8%}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title h2{font-size:30px;color:var(--dark)}
+.section-title p{color:#687991}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.card{
+  background:white;padding:25px;border-radius:12px;
+  box-shadow:0 5px 22px #142b4710;
+  border:1px solid #e6edf5;
+}
+.card h3{color:var(--dark);margin:10px 0}
+.icon{font-size:34px}
+.portfolio .card{background:#eaf2fc}
+.portfolio .sample{
+  background:linear-gradient(135deg,#1266c5,#092447);
+  color:white;padding:35px 10px;
+  text-align:center;border-radius:8px;
+  font-weight:bold;font-size:20px;
+}
+.about{background:white}
+.contact-wrap{
+  max-width:650px;margin:auto;
+  background:white;padding:28px;border-radius:12px;
+}
+input,textarea{
+  width:100%;padding:13px;margin:8px 0 16px;
+  border:1px solid #ccd7e5;border-radius:6px;
+  font:inherit;
+}
+textarea{min-height:120px}
+footer{
+  background:var(--dark);color:white;
+  text-align:center;padding:25px;
+}
+.dashboard{background:#edf3fa}
+.dash-head{
+  background:var(--dark);color:white;
+  padding:25px;border-radius:12px;margin-bottom:20px;
+}
+.stat strong{display:block;font-size:30px;color:var(--blue)}
+.dash-link{margin-top:15px}
+.dash-link button{
+  border:0;background:var(--blue);color:white;
+  padding:10px 16px;border-radius:6px;cursor:pointer;
+}
+#dashboard{display:none}
+#message{margin-top:10px;color:green}
+@media(max-width:600px){
+ header{padding:16px 5%}
+ nav{gap:12px}
+ section{padding:45px 6%}
+ .hero{padding:65px 6%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🌐 GLOBAL <span>LINK SOLUTION</span></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#dashboard" onclick="showDashboard()">Client Portal</a>
+  </nav>
+</header>
+
+<main id="website">
+
+<section class="hero" id="home">
+  <h1>Connecting Businesses<br>to a Digital Future.</h1>
+  <p>Your trusted digital partner for web design, AI video creation, creative advertising and innovative digital solutions.</p>
+  <a href="#services" class="btn">Explore Our Services →</a>
+  <a href="#contact" class="btn">Get In Touch</a>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>Creative solutions to grow your business worldwide.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">💻</div>
+      <h3>Web Design</h3>
+      <p>Modern, responsive and professional websites for businesses and individuals.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🎬</div>
+      <h3>AI Video Creation</h3>
+      <p>Creative AI videos, storytelling, promotional videos and cinematic content.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📢</div>
+      <h3>Digital Advertising</h3>
+      <p>UGC ads, product promotions and social media advertising content.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🚀</div>
+      <h3>Digital Solutions</h3>
+      <p>Creative digital services designed to help businesses grow online.</p>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="portfolio">
+  <div class="section-title">
+    <h2>Our Portfolio</h2>
+    <p>Explore our creative work and digital projects.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="sample">WEB DESIGN</div>
+      <h3>Business Websites</h3>
+      <p>Modern website design and development.</p>
+    </div>
+    <div class="card">
+      <div class="sample">AI VIDEO</div>
+      <h3>Creative Video Ads</h3>
+      <p>AI-powered product and promotional videos.</p>
+    </div>
+    <div class="card">
+      <div class="sample">DIGITAL ADS</div>
+      <h3>Marketing Content</h3>
+      <p>Social media and UGC advertising creatives.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="section-title">
+    <h2>About Global Link Solution</h2>
+  </div>
+  <div style="max-width:750px;margin:auto;text-align:center">
+    <p>GLOBAL LINK SOLUTION is a digital creative agency focused on connecting businesses with modern technology, creative design and innovative digital services.</p>
+    <p style="margin-top:15px">Our mission is to help businesses build their online presence and reach more customers through creative digital solutions.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <h2>Let's Work Together</h2>
+    <p>Have a project? Send us a message.</p>
+  </div>
+  <div class="contact-wrap">
+    <form id="contactForm">
+      <label>Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+      <label>Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <label>Project Details</label>
+      <textarea id="details" placeholder="Tell us about your project..." required></textarea>
+      <button class="btn blue" type="submit">Send Inquiry</button>
+      <p id="message"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<section id="dashboard" class="dashboard">
+  <div class="dash-head">
+    <h2>Client Dashboard</h2>
+    <p>Welcome to GLOBAL LINK SOLUTION Client Portal</p>
+    <div class="dash-link">
+      <button onclick="showWebsite()">← Back to Website</button>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="card stat">
+      <h3>Total Projects</h3>
+      <strong>03</strong>
+      <p>Sample projects</p>
+    </div>
+    <div class="card stat">
+      <h3>In Progress</h3>
+      <strong>02</strong>
+      <p>Sample active projects</p>
+    </div>
+    <div class="card stat">
+      <h3>Completed</h3>
+      <strong>01</strong>
+      <p>Sample completed projects</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <h3>Recent Projects</h3>
+    <p>Website Development — In Progress</p>
+    <hr style="margin:12px 0;border:0;border-top:1px solid #ddd">
+    <p>AI Product Advertisement — In Progress</p>
+    <hr style="margin:12px 0;border:0;border-top:1px solid #ddd">
+    <p>Business Branding — Completed</p>
+  </div>
+  <p style="margin-top:15px;font-size:13px;color:#687991">Demo dashboard only. Client accounts and live project data will be added in a future development phase.</p>
+</section>
+
+<footer>
+  <h3>GLOBAL LINK SOLUTION</h3>
+  <p>Connecting Businesses to a Digital Future.</p>
+  <p>© 2026 Global Link Solution. All Rights Reserved.</p>
+</footer>
+
+<script>
+function showDashboard(){
+  document.getElementById('website').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  window.scrollTo(0,0);
+}
+function showWebsite(){
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('website').style.display='block';
+  window.scrollTo(0,0);
+}
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const email=document.getElementById('email').value;
+  const details=document.getElementById('details').value;
+  const subject=encodeURIComponent('Website Inquiry from '+name);
+  const body=encodeURIComponent(
+    'Name: '+name+'\nEmail: '+email+'\nProject: '+details
+  );
+  document.getElementById('message').textContent='Opening your email application...';
+  window.location.href='mailto:YOUR_EMAIL@example.com?subject='+subject+'&body='+body;
+});
+</script>
+</body>
+</html>

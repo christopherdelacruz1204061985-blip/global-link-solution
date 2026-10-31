@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Global Link Solution | Client Portal</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Arial,sans-serif;
+background:#f2f6fc;color:#24344a;
+}
+header{
+background:#092447;color:white;
+padding:20px;display:flex;
+justify-content:space-between;
+align-items:center;gap:10px;flex-wrap:wrap;
+}
+.brand{font-size:21px;font-weight:bold}
+.brand span{color:#38a4ff}
+main{max-width:950px;margin:auto;padding:22px}
+.card{
+background:white;padding:22px;
+border-radius:13px;margin-bottom:18px;
+box-shadow:0 3px 15px #09244712;
+}
+h2{color:#092447}
+button{
+background:#1266c5;color:white;
+border:0;border-radius:7px;
+padding:12px 18px;font-weight:bold;
+cursor:pointer;
+}
+input{
+width:100%;padding:13px;
+border:1px solid #ccd6e4;
+border-radius:7px;margin:9px 0 17px;
+font-size:15px;
+}
+label{font-weight:bold;font-size:14px}
+.login{
+max-width:430px;margin:65px auto;
+}
+.hero{
+background:linear-gradient(120deg,#092447,#1266c5);
+color:white;padding:25px;border-radius:13px;
+margin-bottom:20px;
+}
+.hero h1{margin-top:0}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+.number{font-size:27px;color:#1266c5;font-weight:bold}
+.muted{color:#738197;font-size:13px}
+.progress{
+height:10px;background:#e5ebf4;
+border-radius:10px;margin:14px 0;
+}
+.progress div{
+height:100%;width:75%;
+background:#1266c5;border-radius:10px;
+}
+.status{
+display:inline-block;
+padding:6px 12px;border-radius:20px;
+background:#dcf8e7;color:#16834b;
+font-size:12px;font-weight:bold;
+}
+.hidden{display:none}
+footer{text-align:center;padding:25px;color:#738197}
+</style>
+</head>
+<body>
+
+<header>
+<div class="brand">🌐 GLOBAL <span>LINK SOLUTION</span></div>
+<div>CLIENT PORTAL</div>
+</header>
+
+<main>
+
+<section id="loginSection" class="card login">
+<h2>Welcome, Client!</h2>
+<p>Access your project information and updates.</p>
+<label>Email Address</label>
+<input type="email" id="email"
+placeholder="Enter your email">
+<button onclick="demoLogin()">Open Demo Portal</button>
+<p class="muted">
+DEMO VERSION — No real account authentication yet.
+</p>
+</section>
+
+<section id="portal" class="hidden">
+
+<div class="hero">
+<h1>Welcome to Your Portal!</h1>
+<p>View your projects, progress and invoices.</p>
+<strong id="clientEmail"></strong>
+</div>
+
+<div class="section grid">
+<div class="card">
+<div class="muted">My Projects</div>
+<div class="number">2</div>
+</div>
+<div class="card">
+<div class="muted">Completed Projects</div>
+<div class="number">1</div>
+</div>
+<div class="card">
+<div class="muted">Pending Invoices</div>
+<div class="number">1</div>
+</div>
+</div>
+
+<div class="card">
+<h2>📁 My Projects</h2>
+<h3>Website Development</h3>
+<span class="status">In Progress</span>
+<p class="muted">Project completion: 75%</p>
+<div class="progress"><div></div></div>
+<p>Next milestone: Website Final Review</p>
+<p><strong>Target deadline:</strong> To be confirmed</p>
+</div>
+
+<div class="card">
+<h2>💰 My Invoices</h2>
+<p>Website Development — Sample Invoice</p>
+<h2>$350.00</h2>
+<span class="status">Pending (Demo)</span>
+<p class="muted">Sample billing information only.</p>
+</div>
+
+<div class="card">
+<h2>📋 Recent Updates</h2>
+<p>✅ Initial design completed</p>
+<p>✅ Homepage development completed</p>
+<p>⏳ Final website review in progress</p>
+</div>
+
+<div class="card">
+<h2>📞 Need Assistance?</h2>
+<p>Contact Global Link Solution for project support.</p>
+</div>
+
+<button onclick="logout()">Logout</button>
+
+</section>
+</main>
+
+<footer>
+© 2026 GLOBAL LINK SOLUTION
+<br>Connecting Businesses to a Digital Future.
+</footer>
+
+<script>
+function demoLogin(){
+const email=document.getElementById('email').value;
+if(!email || !email.includes('@')){
+alert('Please enter a valid email address.');
+return;
+}
+document.getElementById('clientEmail').textContent=email;
+document.getElementById('loginSection').classList.add('hidden');
+document.getElementById('portal').classList.remove('hidden');
+}
+function logout(){
+document.getElementById('portal').classList.add('hidden');
+document.getElementById('loginSection').classList.remove('hidden');
+document.getElementById('email').value='';
+}
+</script>
+
+</body>
+</html>

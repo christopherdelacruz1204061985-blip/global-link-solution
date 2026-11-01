@@ -1,303 +1,174 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Global Link Solution | Client Dashboard</title>
+<title>Global Link Solution | Admin Dashboard 2.1</title>
 <style>
-:root{
---blue:#1266c5;
---dark:#092447;
---light:#eef5ff;
---white:#fff;
-}
+:root{--blue:#1266c5;--dark:#092447;--light:#eef5ff;--white:#fff}
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f3f6fb;
-color:#26364a;
-}
-header{
-background:var(--dark);
-color:white;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:12px;
-}
-.brand{font-size:21px;font-weight:bold}
-.brand span{color:#38a4ff}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#26364a}
+header{background:var(--dark);color:#fff;padding:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.brand{font-size:21px;font-weight:bold}.brand span{color:#38a4ff}
 header small{color:#c9d9ec}
-nav{
-background:#fff;
-padding:14px;
-display:flex;
-gap:20px;
-overflow-x:auto;
-border-bottom:1px solid #ddd;
-}
+nav{background:#fff;padding:14px;display:flex;gap:20px;overflow-x:auto;border-bottom:1px solid #ddd}
 nav a{color:var(--dark);text-decoration:none;font-weight:bold;white-space:nowrap}
 .container{padding:22px;max-width:1200px;margin:auto}
-.welcome{
-background:linear-gradient(120deg,#092447,#1266c5);
-color:white;
-padding:27px;
-border-radius:14px;
-margin-bottom:22px;
-}
+.welcome{background:linear-gradient(120deg,#092447,#1266c5);color:#fff;padding:27px;border-radius:14px;margin-bottom:22px}
 .welcome h1{margin:0 0 8px;font-size:25px}
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
-gap:14px;
-margin-bottom:25px;
-}
-.card{
-background:white;
-padding:19px;
-border-radius:12px;
-box-shadow:0 3px 12px #102b4810;
-}
-.stat-icon{font-size:25px}
-.stat-number{font-size:27px;font-weight:bold;color:var(--blue);margin:9px 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;margin-bottom:25px}
+.card{background:#fff;padding:19px;border-radius:12px;box-shadow:0 3px 12px #102b4810}
+.stat-icon{font-size:25px}.stat-number{font-size:27px;font-weight:bold;color:var(--blue);margin:9px 0}
 .muted{color:#738197;font-size:13px}
-.section-title{
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-gap:10px;
-margin:28px 0 15px;
-}
+.section-title{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin:28px 0 15px}
 .section-title h2{font-size:20px;color:var(--dark);margin:0}
-button{
-background:var(--blue);
-color:white;
-border:0;
-padding:11px 17px;
-border-radius:7px;
-font-weight:bold;
-cursor:pointer;
-}
-button:hover{background:#084b98}
-.secondary{background:#eaf2fc;color:var(--blue)}
+button{background:var(--blue);color:#fff;border:0;padding:11px 17px;border-radius:7px;font-weight:bold;cursor:pointer}
+button:hover{background:#084b98}.secondary{background:#eaf2fc;color:var(--blue)}
 table{width:100%;border-collapse:collapse;min-width:500px}
 th,td{text-align:left;padding:13px 10px;border-bottom:1px solid #edf0f4;font-size:14px}
-th{color:#718096}
-.table-wrap{overflow-x:auto}
-.status{
-padding:5px 9px;
-border-radius:20px;
-font-size:12px;
-background:#e0f7e9;
-color:#16834b;
-}
+th{color:#718096}.table-wrap{overflow-x:auto}
+.status{padding:5px 9px;border-radius:20px;font-size:12px;background:#e0f7e9;color:#16834b}
 .pending{background:#fff2d9;color:#a66a00}
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:14px;
-}
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
 .project{border-left:4px solid var(--blue)}
 .progress{height:8px;background:#e8edf5;border-radius:10px;margin-top:12px}
 .progress div{height:100%;background:var(--blue);border-radius:10px}
-input,select{
-width:100%;
-padding:12px;
-margin:7px 0 13px;
-border:1px solid #d6deea;
-border-radius:7px;
-font-size:15px;
-}
+input,select{width:100%;padding:12px;margin:7px 0 13px;border:1px solid #d6deea;border-radius:7px;font-size:15px}
 label{font-size:13px;font-weight:bold}
-#clientForm{display:none;margin-bottom:20px}
+#clientForm,#paymentForm{display:none;margin-bottom:20px}
+.note{background:#fff8e6;border-left:4px solid #d99a16;padding:12px 14px;border-radius:8px;color:#72500b;font-size:13px;margin:12px 0}
 footer{text-align:center;padding:25px;color:#718096;font-size:13px}
+@media(max-width:600px){.container{padding:16px}.welcome{padding:22px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
-
 <header>
-<div>
-<div class="brand">🌐 GLOBAL <span>LINK SOLUTION</span></div>
-<small>Digital Agency & Client Management</small>
-</div>
-<div>Admin Portal | Demo</div>
+  <div><div class="brand">🌐 GLOBAL <span>LINK SOLUTION</span></div><small>Digital Agency & Client Management</small></div>
+  <div>Admin Portal | Prototype 2.1</div>
 </header>
-
 <nav>
-<a href="#dashboard">Dashboard</a>
-<a href="#clients">Clients</a>
-<a href="#projects">Projects</a>
-<a href="#tasks">Tasks</a>
-<a href="#reports">Reports</a>
-<a href="#contact">Contact</a>
+  <a href="#dashboard">Dashboard</a><a href="#clients">Clients</a><a href="#projects">Projects</a>
+  <a href="#payments">Payments</a><a href="#tasks">Tasks</a><a href="#reports">Reports</a><a href="#contact">Contact</a>
 </nav>
-
 <main class="container">
-
 <section class="welcome" id="dashboard">
-<h1>Welcome to Your Dashboard!</h1>
-<p>Manage your clients, projects and business activities in one place.</p>
-<strong>GLOBAL LINK SOLUTION 2.0</strong>
+  <h1>Welcome to Your Dashboard!</h1>
+  <p>Manage your clients, projects and business activities in one place.</p>
+  <strong>GLOBAL LINK SOLUTION 2.1</strong>
 </section>
-
 <div class="stats">
-<div class="card">
-<div class="stat-icon">👥</div>
-<div class="stat-number" id="clientCount">3</div>
-<div class="muted">Total Clients</div>
-</div>
-<div class="card">
-<div class="stat-icon">📁</div>
-<div class="stat-number">4</div>
-<div class="muted">Active Projects</div>
-</div>
-<div class="card">
-<div class="stat-icon">✅</div>
-<div class="stat-number">8</div>
-<div class="muted">Completed Tasks</div>
-</div>
-<div class="card">
-<div class="stat-icon">💰</div>
-<div class="stat-number">$2,450</div>
-<div class="muted">Demo Revenue</div>
-</div>
+  <div class="card"><div class="stat-icon">👥</div><div class="stat-number" id="clientCount">0</div><div class="muted">Total Clients</div></div>
+  <div class="card"><div class="stat-icon">📁</div><div class="stat-number">3</div><div class="muted">Sample Projects</div></div>
+  <div class="card"><div class="stat-icon">✅</div><div class="stat-number">4</div><div class="muted">Sample Tasks</div></div>
+  <div class="card"><div class="stat-icon">💳</div><div class="stat-number" id="paymentCount">0</div><div class="muted">Payment Records</div></div>
 </div>
 
 <section id="clients">
-<div class="section-title">
-<h2>Client Management</h2>
-<button onclick="toggleForm()">+ Add Client</button>
-</div>
-
-<div class="card" id="clientForm">
-<h3>Register New Client</h3>
-<form onsubmit="addClient(event)">
-<label>Client Name</label>
-<input id="clientName" required placeholder="Enter client name">
-<label>Email Address</label>
-<input id="clientEmail" type="email" required placeholder="Enter email">
-<label>Project Type</label>
-<select id="clientType">
-<option>Web Design</option>
-<option>AI Video Creation</option>
-<option>Digital Advertising</option>
-<option>Other Services</option>
-</select>
-<button type="submit">Save Client</button>
-<button type="button" class="secondary" onclick="toggleForm()">Cancel</button>
-</form>
-</div>
-
-<div class="card table-wrap">
-<table>
-<thead>
-<tr><th>Client</th><th>Service</th><th>Status</th></tr>
-</thead>
-<tbody id="clientList">
-<tr><td>ABC Company</td><td>Web Design</td><td><span class="status">Active</span></td></tr>
-<tr><td>Global Store</td><td>AI Video</td><td><span class="status">Active</span></td></tr>
-<tr><td>Digital Pro</td><td>Advertising</td><td><span class="status pending">Pending</span></td></tr>
-</tbody>
-</table>
-</div>
+  <div class="section-title"><h2>Client Management</h2><button onclick="toggleForm()">+ Add Client</button></div>
+  <div class="card" id="clientForm">
+    <h3>Register New Client</h3>
+    <form onsubmit="addClient(event)">
+      <label>Client Name</label><input id="clientName" required placeholder="Enter client name">
+      <label>Email Address</label><input id="clientEmail" type="email" required placeholder="Enter email">
+      <label>Project Type</label>
+      <select id="clientType"><option>Web Design</option><option>AI Video Creation</option><option>Digital Advertising</option><option>Other Services</option></select>
+      <button type="submit">Save Client</button><button type="button" class="secondary" onclick="toggleForm()">Cancel</button>
+    </form>
+  </div>
+  <div class="card table-wrap"><table><thead><tr><th>Client</th><th>Service</th><th>Status</th></tr></thead><tbody id="clientList"></tbody></table></div>
 </section>
 
 <section id="projects">
-<div class="section-title"><h2>Project Tracking</h2></div>
-<div class="projects">
-<div class="card project">
-<h3>Website Development</h3>
-<p class="muted">Corporate website project</p>
-<strong>75% Complete</strong>
-<div class="progress"><div style="width:75%"></div></div>
-</div>
-<div class="card project">
-<h3>AI Video Campaign</h3>
-<p class="muted">Social media advertising</p>
-<strong>60% Complete</strong>
-<div class="progress"><div style="width:60%"></div></div>
-</div>
-<div class="card project">
-<h3>Brand Design</h3>
-<p class="muted">Business identity project</p>
-<strong>90% Complete</strong>
-<div class="progress"><div style="width:90%"></div></div>
-</div>
-</div>
+  <div class="section-title"><h2>Project Tracking</h2></div>
+  <div class="projects">
+    <div class="card project"><h3>Website Development</h3><p class="muted">Corporate website project</p><strong>75% Complete</strong><div class="progress"><div style="width:75%"></div></div></div>
+    <div class="card project"><h3>AI Video Campaign</h3><p class="muted">Social media advertising</p><strong>60% Complete</strong><div class="progress"><div style="width:60%"></div></div></div>
+    <div class="card project"><h3>Brand Design</h3><p class="muted">Business identity project</p><strong>90% Complete</strong><div class="progress"><div style="width:90%"></div></div></div>
+  </div>
+</section>
+
+<section id="payments">
+  <div class="section-title"><h2>Payment Tracking</h2><button onclick="togglePaymentForm()">+ Add Payment</button></div>
+  <div class="note">Prototype only: client and payment entries are stored in this browser on this device. They are not synced to other devices or protected by a secure account system. Do not enter sensitive financial information.</div>
+  <div class="card" id="paymentForm">
+    <h3>Record a Payment</h3>
+    <form onsubmit="addPayment(event)">
+      <label>Client / Project</label><input id="paymentClient" required placeholder="Client or project name">
+      <label>Amount (PHP)</label><input id="paymentAmount" type="number" min="1" step="0.01" required placeholder="e.g. 5000">
+      <label>Payment Status</label><select id="paymentStatus"><option>Pending</option><option>Paid</option></select>
+      <button type="submit">Save Payment</button><button type="button" class="secondary" onclick="togglePaymentForm()">Cancel</button>
+    </form>
+  </div>
+  <div class="card table-wrap"><table><thead><tr><th>Client / Project</th><th>Amount</th><th>Status</th></tr></thead><tbody id="paymentList"></tbody></table></div>
 </section>
 
 <section id="tasks">
-<div class="section-title"><h2>Recent Tasks</h2></div>
-<div class="card">
-<p>✅ Website homepage design <span class="status">Completed</span></p>
-<p>✅ Client consultation <span class="status">Completed</span></p>
-<p>⏳ Social media video campaign <span class="status pending">In Progress</span></p>
-<p>⏳ Website final review <span class="status pending">Pending</span></p>
-</div>
+  <div class="section-title"><h2>Recent Tasks</h2></div>
+  <div class="card">
+    <p>✅ Website homepage design <span class="status">Completed</span></p>
+    <p>✅ Client consultation <span class="status">Completed</span></p>
+    <p>⏳ Social media video campaign <span class="status pending">In Progress</span></p>
+    <p>⏳ Website final review <span class="status pending">Pending</span></p>
+  </div>
 </section>
-
 <section id="reports">
-<div class="section-title"><h2>Business Reports</h2></div>
-<div class="card">
-<h3>Business Performance</h3>
-<p>Client growth and project performance overview.</p>
-<p><strong>Active projects:</strong> 4</p>
-<p><strong>Completed tasks:</strong> 8</p>
-<p><strong>Revenue:</strong> $2,450 (sample data)</p>
-</div>
+  <div class="section-title"><h2>Business Reports</h2></div>
+  <div class="card"><h3>Business Performance</h3><p>Use the client and payment sections to add prototype records.</p><p><strong>Note:</strong> figures above are demonstration data, not actual business results.</p></div>
 </section>
-
 <section id="contact">
-<div class="section-title"><h2>Support & Contact</h2></div>
-<div class="card">
-<h3>GLOBAL LINK SOLUTION</h3>
-<p>Connecting Businesses to a Digital Future.</p>
-<p>Web Design | AI Video Creation | Digital Advertising</p>
-</div>
+  <div class="section-title"><h2>Support & Contact</h2></div>
+  <div class="card"><h3>GLOBAL LINK SOLUTION</h3><p>Connecting Businesses to a Digital Future.</p><p>Web Design | AI Video Creation | Digital Advertising</p></div>
 </section>
-
 </main>
-
-<footer>
-© 2026 GLOBAL LINK SOLUTION. All Rights Reserved.
-<br>Client Dashboard 2.0 | Demonstration Version
-</footer>
+<footer>© 2026 GLOBAL LINK SOLUTION. All Rights Reserved.<br>Admin Dashboard 2.1 | Prototype Version</footer>
 
 <script>
-function toggleForm(){
-const form=document.getElementById('clientForm');
-form.style.display=form.style.display==='block'?'none':'block';
+const CLIENTS_KEY='gls_demo_clients_v21';
+const PAYMENTS_KEY='gls_demo_payments_v21';
+const starterClients=[
+  {name:'ABC Company',email:'',service:'Web Design',status:'Active'},
+  {name:'Global Store',email:'',service:'AI Video Creation',status:'Active'},
+  {name:'Digital Pro',email:'',service:'Digital Advertising',status:'Pending'}
+];
+const starterPayments=[
+  {client:'ABC Company — Website',amount:15000,status:'Paid'},
+  {client:'Global Store — AI Video',amount:8000,status:'Pending'}
+];
+function readStore(key,fallback){
+  try{const value=localStorage.getItem(key);return value?JSON.parse(value):fallback;}
+  catch(error){return fallback;}
+}
+function saveStore(key,value){
+  try{localStorage.setItem(key,JSON.stringify(value));}
+  catch(error){alert('Could not save browser data. Check browser storage settings.');}
+}
+let clients=readStore(CLIENTS_KEY,starterClients);
+let payments=readStore(PAYMENTS_KEY,starterPayments);
+function toggleForm(){const form=document.getElementById('clientForm');form.style.display=form.style.display==='block'?'none':'block';}
+function togglePaymentForm(){const form=document.getElementById('paymentForm');form.style.display=form.style.display==='block'?'none':'block';}
+function addCell(row,text){const cell=document.createElement('td');cell.textContent=text;row.appendChild(cell);return cell;}
+function addBadge(cell,text,isPending){const badge=document.createElement('span');badge.className=isPending?'status pending':'status';badge.textContent=text;cell.appendChild(badge);}
+function renderClients(){
+  const list=document.getElementById('clientList');list.replaceChildren();
+  clients.forEach(client=>{const row=document.createElement('tr');addCell(row,client.email?client.name+' ('+client.email+')':client.name);addCell(row,client.service);const statusCell=addCell(row,'');addBadge(statusCell,client.status,client.status!=='Active');list.appendChild(row);});
+  document.getElementById('clientCount').textContent=clients.length;
 }
 function addClient(event){
-event.preventDefault();
-const name=document.getElementById('clientName').value;
-const email=document.getElementById('clientEmail').value;
-const type=document.getElementById('clientType').value;
-const row=document.createElement('tr');
-[name+' ('+email+')',type,'New Client'].forEach((value,index)=>{
-const cell=document.createElement('td');
-cell.textContent=value;
-if(index===2){
-const badge=document.createElement('span');
-badge.className='status pending';
-badge.textContent='New';
-cell.textContent='';
-cell.appendChild(badge);
+  event.preventDefault();
+  clients.push({name:document.getElementById('clientName').value.trim(),email:document.getElementById('clientEmail').value.trim(),service:document.getElementById('clientType').value,status:'New'});
+  saveStore(CLIENTS_KEY,clients);renderClients();event.target.reset();toggleForm();alert('Client record saved in this browser.');
 }
-row.appendChild(cell);
-});
-document.getElementById('clientList').appendChild(row);
-document.getElementById('clientCount').textContent=
-document.getElementById('clientList').rows.length;
-event.target.reset();
-toggleForm();
-alert('Client added successfully!');
+function renderPayments(){
+  const list=document.getElementById('paymentList');list.replaceChildren();
+  payments.forEach(payment=>{const row=document.createElement('tr');addCell(row,payment.client);addCell(row,'₱'+Number(payment.amount).toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2}));const statusCell=addCell(row,'');addBadge(statusCell,payment.status,payment.status!=='Paid');list.appendChild(row);});
+  document.getElementById('paymentCount').textContent=payments.length;
 }
+function addPayment(event){
+  event.preventDefault();
+  payments.push({client:document.getElementById('paymentClient').value.trim(),amount:Number(document.getElementById('paymentAmount').value),status:document.getElementById('paymentStatus').value});
+  saveStore(PAYMENTS_KEY,payments);renderPayments();event.target.reset();togglePaymentForm();alert('Payment record saved in this browser.');
+}
+renderClients();renderPayments();
 </script>
 </body>
 </html>
